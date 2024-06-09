@@ -1,12 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
+import {set, useDispatch, useSelector} from 'react-redux';
 import { selectSearchTerm, setSearchTerm } from '../search.slice';
 import './search-bar.css';
 
 export default function SearchBar() {
+    const dispatch = useDispatch();
   const searchTerm = useSelector(selectSearchTerm);
   // Task 10: Store a reference to the Redux store's dispatch method in a variable called `dispatch`
 
   function handleChange({ target: { value } }) {
+      dispatch(setSearchTerm(value))
     // Task 11: Dispatch the `setSearchTerm()` action creator, passing in the value of the search input
   }
 
